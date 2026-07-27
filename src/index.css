@@ -3,20 +3,19 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-*{
-    margin: 0;
-    box-sizing: border-box;
+@utility custom-container {
+    @apply max-w-330 mx-auto px-4 w-full 
+}
+
+* {
     font-family: 'Nunito Sans', sans-serif;
 }
 html {
     scroll-behavior: smooth;
 }
-img {
-    max-width: 100%;
-}
-a {
-    text-decoration: none;
-}
-input, select {
+input {
     outline: none;
+}
+button {
+    cursor: pointer;
 }

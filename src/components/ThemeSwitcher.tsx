@@ -24,7 +24,7 @@ const ThemeSwitcher = () => {
     <>
       <button
         onClick={toggleTheme}
-        className="flex items-center justify-between font-[600] gap-[0.3rem] cursor-pointer
+        className="flex items-center justify-between font-semibold gap-[0.3rem] cursor-pointer
         transition-all duration-300 ease-in-out text-black dark:text-white"
       >
         {isDark ? <BsSun /> : <BsMoon />}

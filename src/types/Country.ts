@@ -6,6 +6,7 @@ export interface Country {
   region: string;
   subregion: string;
   capital?: string;
+  alpha3Code: string;
 
   topLevelDomain: string[];
   currencies?: Currencies[];
