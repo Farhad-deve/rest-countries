@@ -11,7 +11,7 @@ const CountryCard = ({country} : CountryCardProps) => {
     <Link to={`/country/${country.alpha3Code}`}>
         <div className="bg-white dark:bg-[#2b3945] h-full shadow-[0_0_3px_1px_#00000020] rounded-lg overflow-hidden cursor-pointer transition-all hover:translate-y-[-0.3rem]">
             <div className="flex items-center justify-center h-48 w-full aspect-video overflow-hidden">
-                <img src={country.flags.svg} alt={`${country.name} flag`} className="object-cover shadow-[0_0_3px_1px_#00000020] w-full h-full" />
+                <img src={country.flags.svg} alt={`${country.name} flag`} loading="lazy" className="object-cover border-b border-b-[#ccc] dark:border-b-[#202c37] w-full h-full" />
             </div>
 
             <div className="px-[clamp(1.5rem,2vw,2rem)] py-6 flex flex-col gap-4">

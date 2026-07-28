@@ -11,7 +11,8 @@ const CountryPage = () => {
     <>
       <Header />
 
-      <div className="dark:bg-[#202c37] bg-[#fcfcfc] py-[clamp(2rem,2.5vw,3rem)]">
+      <div className="dark:bg-[#202c37] bg-[#fcfcfc] min-h-screen py-[clamp(2rem,2.5vw,3rem)]">
+
         <div className="custom-container flex flex-col items-start gap-8">
           <div>
             <Link to="/">
@@ -22,9 +23,9 @@ const CountryPage = () => {
             </Link>
           </div>
 
-          <div className="dark:text-white flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-[8rem]">
-            <div>
-              <img src={country?.flags.svg} alt={`${country?.name} flag`} className="max-w-[35rem]" />
+          <div className="dark:text-white flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-20 lg:items-center">
+            <div className="w-full md:w-160 lg:w-120">
+              <img src={country?.flags.svg} alt={`${country?.name} flag`} loading="lazy" className="w-full shadow-[0_2px_5px_2px_#00000020]" />
             </div>
 
             <div className="flex flex-col gap-8">
@@ -42,28 +43,37 @@ const CountryPage = () => {
                   <li className="font-semibold text-[clamp(1rem,1.2vw,1.2rem)]">Top Level Domain: <span className="font-light">{country?.topLevelDomain}</span></li>
                   <li className="font-semibold text-[clamp(1rem,1.2vw,1.2rem)]">
                     Currencies:{" "}
-                    <span className="font-light">{country?.currencies?.map((currency) => currency.name)}</span>
+                    {country?.currencies?.map((currency) => (
+                      <span key={currency.code} className="font-light">{currency.name}, </span>
+                    ))}
                   </li>
                   <li className="font-semibold text-[clamp(1rem,1.2vw,1.2rem)]">
                     Languages:{" "}
                     {country?.languages?.map((language) => (
-                      <span className="font-light">{language.name}, </span>
+                      <span key={language.iso639_1} className="font-light">{language.name}, </span>
                     ))}
                   </li>
                 </ul>
               </div>
 
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-4 max-w-160">
                 <h2 className="font-semibold">Border Countries:</h2>
                 <div className="flex items-center flex-wrap gap-2">
-                  {country?.borders?.map((border) => (
-                    <span className="dark:bg-[#2b3945] bg-white rounded-md px-6 py-1 cursor-pointer shadow-[0_2px_5px_2px_#00000020]">{border}</span>
-                  ))}
+                  {country?.borders?.map((borderCode) => {
+                    const borderCountry = data.find(
+                      (item) => item.alpha3Code === borderCode
+                    );
+
+                    return (
+                      <Link key={borderCode} to={`/country/${borderCountry?.alpha3Code}`} className="dark:bg-[#2b3945] bg-white rounded-md px-6 py-1 cursor-pointer shadow-[0_2px_5px_2px_#00000020]">{borderCountry?.name}</Link>
+                    )
+                  })}
                 </div>
               </div>
             </div>
           </div>
         </div>
+
       </div>
     </>
   );
