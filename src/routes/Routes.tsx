@@ -1,6 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import CountryPage from "../pages/CountryPage";
+import { lazy, Suspense } from "react";
+import LoadingPage from "../pages/LoadingPage";
+
+const CountryPage = lazy(() => import('../pages/CountryPage'))
 
 export const router = createBrowserRouter([
     {
@@ -9,7 +12,11 @@ export const router = createBrowserRouter([
     },
     {
         path: '/country/:alpha3Code',
-        element: <CountryPage />,
+        element: (
+            <Suspense fallback={<LoadingPage />}>
+                <CountryPage />
+            </Suspense>
+        ),
 
     }
 ])
