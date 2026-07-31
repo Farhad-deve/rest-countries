@@ -1,5 +1,12 @@
 # 🌍 REST Countries Explorer
 
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
+![React Router](https://img.shields.io/badge/React_Router-7-CA4245?logo=reactrouter)
+
+
 A responsive React application that allows users to explore countries around the world. Users can search for countries, filter them by region, switch between light and dark themes, and view detailed information about each country.
 
 ## ✨ Features
@@ -12,14 +19,6 @@ A responsive React application that allows users to explore countries around the
 - 📱 Fully responsive design
 - ⚡ Lazy loading with `React.lazy()` and `Suspense`
 - 🚀 Optimized for performance and SEO
-
-## 🛠️ Built With
-
-- React
-- TypeScript
-- React Router
-- Tailwind CSS
-- Vite
 
 ## 📸 Preview
 
